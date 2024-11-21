@@ -28,6 +28,6 @@ jobs:
         uses: MihaelaDanila100/ing-hubs-frontend-assignment@main
         with:
           ACCESS_TOKEN: ${{ secrets.G_TOKEN }}
-          FOLDER: dist/browser
+          FOLDER: frontend-assignment/dist/browser
 
       
