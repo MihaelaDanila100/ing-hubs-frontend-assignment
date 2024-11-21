@@ -25,8 +25,7 @@ jobs:
         run: npm run build:prod
       
       - name: Deploy app to github pages
-        uses: MihaelaDanila100/
-        ing-hubs-frontend-assignment
+        uses: MihaelaDanila100/ing-hubs-frontend-assignment
         with:
           ACCESS_TOKEN: ${{ secrets.G_TOKEN }}
       
