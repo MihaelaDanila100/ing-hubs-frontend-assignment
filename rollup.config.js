@@ -17,10 +17,15 @@ const config = {
         nodeResolve(),
         commonjs(),
         typescript({
+            tsconfig: './tsconfig.json',
             sourceMap: true
         }),
         copy({
             targets: [
+                { 
+                    src: 'index.html',
+                    dest: 'dist/'
+                },
                 {
                     src: "assets/*",
                     dest: 'dist/assets/'
