@@ -2,6 +2,7 @@ import rollupPluginHTML from '@open-wc/rollup-plugin-html';
 import commonjs from '@rollup/plugin-node-resolve';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
+import typescript from '@rollup/plugin-typescript';
 
 const config = {
     input: 'index.html',
@@ -15,6 +16,9 @@ const config = {
         }),
         nodeResolve(),
         commonjs(),
+        typescript({
+            sourceMap: true
+        }),
         copy({
             targets: [
                 {
