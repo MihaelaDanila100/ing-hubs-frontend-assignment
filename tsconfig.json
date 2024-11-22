@@ -1,6 +1,7 @@
 {
   "declarationDir": "types",
   "compilerOptions": {
+    "sourceMap": true,
     "target": "es2021",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
@@ -11,11 +12,10 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "sourceMap": true,
     "inlineSources": true,
     "rootDir": "./src",
     "incremental": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.ts"]
 }
