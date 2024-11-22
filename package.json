@@ -7,7 +7,9 @@
   "type": "module",
   "scripts": {
     "analyze": "cem analyze --litelement",
-    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"web-dev-server\""
+    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"web-dev-server\"",
+    "build": "rimraf dist && rollup -c rollup.config.js",
+    "start:build": "es-dev-server --app-index dist/index.html --open"
   },
   "dependencies": {
     "@lion/ui": "^0.8.6",
@@ -15,8 +17,12 @@
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.10.3",
+    "@open-wc/building-rollup": "^3.0.2",
     "@web/dev-server": "^0.4.6",
     "concurrently": "^8.2.2",
+    "es-dev-server": "^2.1.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^3.29.5",
     "tslib": "^2.6.3",
     "typescript": "^5.5.3"
   },
