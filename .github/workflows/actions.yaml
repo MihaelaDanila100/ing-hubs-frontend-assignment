@@ -16,7 +16,7 @@ jobs:
       - name: Navigate to app directory
         run: cd web-app
       - name: Install dependencies
-        run: npm installl
+        run: npm install
         working-directory: ./web-app
       - name: Build the app
         run: npm run build
