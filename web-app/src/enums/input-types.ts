@@ -1,4 +1,5 @@
 export enum InputTypes {
     INPUT = 'input',
-    PASSWORD = 'password'
+    PASSWORD = 'password',
+    EMAIL = 'email'
 }
