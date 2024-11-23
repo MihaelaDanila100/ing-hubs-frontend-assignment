@@ -1,4 +1,8 @@
 import { css, CSSResult } from "lit";
 
-export const PrimaryBlue: CSSResult = css`#13274F`;
-export const PrimaryLightWhite: CSSResult = css`#F0F8FF`;
+export const THEME_COLORS = {
+    primaryBlue: css`#13274F`,
+    primaryLightWhite: css`#F0F8FF`,
+    defaultBlue: css`#0066b2`,
+    buttonColor: css`#00CED1`
+}

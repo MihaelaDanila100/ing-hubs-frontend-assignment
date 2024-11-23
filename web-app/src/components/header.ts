@@ -1,6 +1,8 @@
 import { CSSResult, html, HTMLTemplateResult, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { HeaderStyles } from "../styles/header-styles.js";
+import './button.js';
+import { THEME_COLORS } from "../styles/theme.js";
 
 @customElement('app-header')
 export class HeaderComponent extends LitElement {
@@ -12,7 +14,10 @@ export class HeaderComponent extends LitElement {
     protected render(): HTMLTemplateResult {
         return html`
             <header class = "header-container">
-                <div>This is my header!</div>
+                <app-button .buttonColor = ${THEME_COLORS.primaryLightWhite.cssText}
+                        .textColor = ${THEME_COLORS.primaryBlue.cssText}>
+                    Log In
+                </app-button>
             </header>
         `;
     }
