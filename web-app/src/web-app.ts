@@ -13,7 +13,6 @@ export class WebApp extends LitElement {
 
   @state()
   private _isLogIn: boolean = false;
-
   private _updateTemplate(value: boolean) {
     this._isLogIn = value;
   }
@@ -27,6 +26,7 @@ export class WebApp extends LitElement {
     return html`
       <app-header .isLogIn = ${this._isLogIn}
         @onLogOut=${() => this._updateTemplate(false)}></app-header>
+
       ${this._isLogIn ? html`<app-user-details></app-user-details>` : html`<app-login-form @onLogIn=${() => this._updateTemplate(true)}></app-login-form>`}
       
       <app-footer></app-footer>

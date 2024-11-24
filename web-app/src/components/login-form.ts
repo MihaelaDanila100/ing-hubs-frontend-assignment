@@ -1,6 +1,7 @@
 import '@lion/ui/define/lion-form.js';
 import '@lion/ui/define/lion-checkbox.js';
 import '@lion/ui/define/lion-button-submit.js';
+import './error-component.js';
 import './input-element.js';
 import './loader.js';
 import { CSSResult, html, LitElement, TemplateResult } from 'lit';
@@ -23,6 +24,9 @@ export class LoginForm extends LitElement {
     @state()
     _isLoading: boolean = false;
 
+    @state()
+    private _isError: boolean = false;  
+
     private _formValue: LoginFormTemplate = {
         email: '',
         password: ''
@@ -32,12 +36,13 @@ export class LoginForm extends LitElement {
         return [FormStyles]
     }
 
-    private _submitForm = async () => {
+    private _submitForm = async (event: any) => {
         this._isLoading = true;
         try {
            await this._authService.authUser(this._formValue);
            this.dispatchEvent(new CustomEvent('onLogIn'));
         } catch(error) {
+            this._isError = true;
         } finally {
             this._isLoading = false;
         }
@@ -65,6 +70,7 @@ export class LoginForm extends LitElement {
 
     protected render(): TemplateResult<1> {
         return html`
+        ${this._isError ? html`<app-error-component></app-error-component>` : html``}
         ${this._isLoading ? html`
             <div class='loader-container'>
                 <app-loader></app-loader>
