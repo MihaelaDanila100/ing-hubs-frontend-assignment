@@ -5,6 +5,9 @@ import { FormStyles } from "../styles/form-styles.js";
 import { InputTypes } from "../enums/input-types.js";
 import '@lion/ui/define/lion-input.js';
 import '@lion/ui/define/lion-input-email.js';
+import '@lion/ui/validate-messages.js';
+import { loadDefaultFeedbackMessages } from "@lion/ui/validate-messages.js";
+import { Validator } from "@lion/ui/form-core.js";
 
 @customElement('app-input-element')
 export class AppInputElement extends LionInput {
@@ -17,6 +20,9 @@ export class AppInputElement extends LionInput {
     
     @property({type: String})
     inputType: InputTypes = InputTypes.INPUT;
+    
+    @property()
+    validatorsList: Validator[] = [];
 
     static get scopedElements() {
         return {
@@ -26,10 +32,12 @@ export class AppInputElement extends LionInput {
 
     private _renderSlot() {
         if(this.inputType === InputTypes.EMAIL) {
+            loadDefaultFeedbackMessages();
             return html`
                 <style>${FormStyles}</style>
                 <lion-input-email label=${this.labelName}
                     name=${this.inputName}
+                    .validators="${[...this.validatorsList]}"
                     class="input"></lion-input-email>
             `;
         }
@@ -38,6 +46,7 @@ export class AppInputElement extends LionInput {
             <lion-input label="${this.labelName}" 
                 name="${this.inputName}"
                 type="${this.inputType}"
+                .validators="${[...this.validatorsList]}"
                 class="input"></lion-input>
         `;
     }

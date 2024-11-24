@@ -27,6 +27,7 @@ export class LoginForm extends LitElement {
         return html`
             <app-input-element .labelName=${inputTemplate.labelName}
                 .inputName=${inputTemplate.controlName}
+                .validatorsList=${inputTemplate.validators || []}
                 .inputType=${inputTemplate.inputType}></app-input-element>
         `;
     }
