@@ -1,4 +1,4 @@
-import { LitElement, TemplateResult, html } from 'lit';
+import { CSSResult, LitElement, TemplateResult, html } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import './components/header.js';
 import './components/login-form.js';
@@ -27,7 +27,9 @@ export class WebApp extends LitElement {
       <app-header .isLogIn = ${this._isLogIn}
         @onLogOut=${() => this._updateTemplate(false)}></app-header>
 
-      ${this._isLogIn ? html`<app-user-details></app-user-details>` : html`<app-login-form @onLogIn=${() => this._updateTemplate(true)}></app-login-form>`}
+        <div class='page-container'>
+          ${this._isLogIn ? html`<app-user-details></app-user-details>` : html`<app-login-form @onLogIn=${() => this._updateTemplate(true)}></app-login-form>`}
+        </div>
       
       <app-footer></app-footer>
     `;
