@@ -33,10 +33,11 @@ export const FormStyles: CSSResult = css`
     }
 
     .login-button {
-        width: 30rem;
+        width: 10rem;
+        margin: auto;
         font-size: 1.3rem;
         padding: 1rem;
-        border-radius: 0px;
+        cursor: pointer;
         display: flex;
         flex-direction: row;
         justify-content: center;

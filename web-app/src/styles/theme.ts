@@ -9,5 +9,7 @@ export const THEME_COLORS = {
     lightBlue: css`#B7E0FF`,
     darkGray: css`#616161`,
     lightGreen: css`#38b559`,
-    mediumGray: css`#2f3030`
+    mediumGray: css`#2f3030`,
+    lightRed: css`#ee6b6e`,
+    darkRed: css`#c30010`
 }
