@@ -20,22 +20,11 @@ export class HeaderComponent extends LitElement {
     static override get styles(): [CSSResult] {
         return [HeaderStyles];
     }
-
-    private _toggleDialog = (newIsOpen: boolean) => {
-        this._isOpen = newIsOpen;
-
-        if(this._authService.isLoggedIn()) {
-            this._authService.logOut();
-            this.isLogIn = false;
-        }
-    }
-
     protected render(): HTMLTemplateResult {
         
         return html`
             <header class = "header-container">
                 <app-button
-                        @click = ${this._toggleDialog(true)}
                         .buttonColor = ${THEME_COLORS.primaryLightWhite.cssText}
                         .textColor = ${THEME_COLORS.primaryBlue.cssText}>
                     ${this._authService.isLoggedIn() ? 'Log Out' : 'Log In'}

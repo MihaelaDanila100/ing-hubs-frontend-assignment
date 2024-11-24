@@ -35,7 +35,6 @@ export class LoginForm extends LitElement {
         this._isLoading = true;
         try {
            await this._authService.authUser(this._formValue);
-           this.dispatchEvent(new CustomEvent('onLogIn'));
         } catch(error) {
         } finally {
             this._isLoading = false;
@@ -67,14 +66,10 @@ export class LoginForm extends LitElement {
             <div class="form-container">
                 <lion-form @submit="${this._submitForm}">
                     <form @submit="${(event: any) => event.preventDefault()}">
+                        <h1>Log In</h1>
                         ${
                             this._loginFormData.inputs.map((input: InputTemplate) => html`${this._renderInput(input)}`)
-                        }
-
-                        <lion-checkbox label="Keep me logged in" 
-                            class="checkbox"
-                            .choiceValue=${true}></lion-checkbox>
-                        
+                        }                        
                         <lion-button-submit class="login-button">LOGIN</lion-button-submit>
                     </form>
                 </lion-form>

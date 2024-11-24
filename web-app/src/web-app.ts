@@ -10,13 +10,11 @@ export class WebApp extends LitElement {
 
   private _updateTemplate(value: boolean) {
     this._isLogIn = value;
-    this.requestUpdate();
   }
 
   render() {
     return html`
       <app-header .isLogIn = ${this._isLogIn}></app-header>
-      <h1>Hello!</h1>
       <app-login-form @onLogIn=${() => this._updateTemplate(true)}></app-login-form>
     `;
   }

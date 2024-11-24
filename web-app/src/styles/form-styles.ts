@@ -4,6 +4,8 @@ import { THEME_COLORS } from "./theme.js";
 export const FormStyles: CSSResult = css`
     .form-container {
         width: 30rem;
+        margin: auto;
+        margin-top: 10vh;
     }
 
     .input>input {
@@ -11,6 +13,7 @@ export const FormStyles: CSSResult = css`
         padding: 10px;
         border: 2px solid ${THEME_COLORS.grayColor};
         font-size: 1rem;
+        margin: 1rem;
     }
 
     .input>input:focus {
