@@ -9,14 +9,20 @@ import { FormTemplate } from '../interfaces/form-template.js';
 import { LOGIN_FORM_TEMPLATE } from '../constants/login-form-template.js';
 import { InputTemplate } from '../interfaces/input-template.js';
 import { LoginFormTemplate } from '../interfaces/login-form-template.js';
+import { AuthService } from '../services/auth-service.js';
 
 @customElement('app-login-form')
 export class LoginForm extends LitElement {
 
-    @state()
-    loginFormData: FormTemplate = {...LOGIN_FORM_TEMPLATE};
+    private _authService: AuthService = new AuthService();
 
-    private formValue: LoginFormTemplate = {
+    @state()
+    _loginFormData: FormTemplate = {...LOGIN_FORM_TEMPLATE};
+
+    @state()
+    _isLoading: boolean = false;
+
+    private _formValue: LoginFormTemplate = {
         email: '',
         password: ''
     };
@@ -25,8 +31,14 @@ export class LoginForm extends LitElement {
         return [FormStyles]
     }
 
-    private _submitForm = (event: any) => {
-        console.log("Hi! ", this.formValue);
+    private _submitForm = async () => {
+        this._isLoading = true;
+        try {
+           await this._authService.authUser(this._formValue);
+        } catch(error) {
+        } finally {
+            this._isLoading = false;
+        }
     }
 
     private _renderInput = (inputTemplate: InputTemplate): TemplateResult<1> => {
@@ -43,9 +55,9 @@ export class LoginForm extends LitElement {
         const inputName: string = Object.keys(newValue)[0];
         switch (inputName) {
             case "email":
-                this.formValue.email = newValue[inputName];
+                this._formValue.email = newValue[inputName];
             case "password":
-                this.formValue.password = newValue[inputName];
+                this._formValue.password = newValue[inputName];
         }
     }
 
@@ -55,7 +67,7 @@ export class LoginForm extends LitElement {
                 <lion-form @submit="${this._submitForm}">
                     <form @submit="${(event: any) => event.preventDefault()}">
                         ${
-                            this.loginFormData.inputs.map((input: InputTemplate) => html`${this._renderInput(input)}`)
+                            this._loginFormData.inputs.map((input: InputTemplate) => html`${this._renderInput(input)}`)
                         }
 
                         <lion-checkbox label="Keep me logged in" 
