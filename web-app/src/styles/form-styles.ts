@@ -43,4 +43,12 @@ export const FormStyles: CSSResult = css`
         background-color: ${THEME_COLORS.lightGreen};
         color: ${THEME_COLORS.primaryLightWhite};
     }
+
+    .loader-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        line-height: 60vh;
+    }
 `;
