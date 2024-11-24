@@ -29,7 +29,7 @@ export class AuthService {
         return this._localStorageService.getAcessToken() != null;
     }
 
-    // public logOut(): void {
-    //     this._localStorageService.removeAcessToken();
-    // }
+    public logOut(): void {
+        this._localStorageService.removeAcessToken();
+    }
 }

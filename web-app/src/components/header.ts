@@ -20,15 +20,21 @@ export class HeaderComponent extends LitElement {
     static override get styles(): [CSSResult] {
         return [HeaderStyles];
     }
+
+    private _logOut(): void {
+        this._authService.logOut();
+    }
+
     protected render(): HTMLTemplateResult {
         
         return html`
             <header class = "header-container">
-                <app-button
+                ${this._authService.isLoggedIn() ? html`<app-button
                         .buttonColor = ${THEME_COLORS.primaryLightWhite.cssText}
-                        .textColor = ${THEME_COLORS.primaryBlue.cssText}>
-                    ${this._authService.isLoggedIn() ? 'Log Out' : 'Log In'}
-                </app-button>
+                        .textColor = ${THEME_COLORS.primaryBlue.cssText}
+                        @click=${this._logOut}>
+                    Log Out
+                </app-button>` : html``}
 
                 <lion-dialog ?opened=${this._isOpen}>
                     <div slot="content" class="dialog">
