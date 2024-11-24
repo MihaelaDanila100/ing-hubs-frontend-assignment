@@ -2,6 +2,7 @@ import { LitElement, TemplateResult, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import './components/header.js';
 import './components/login-form.js';
+import './components/footer.js';
 
 @customElement('web-app')
 export class WebApp extends LitElement {
@@ -16,6 +17,7 @@ export class WebApp extends LitElement {
     return html`
       <app-header .isLogIn = ${this._isLogIn}></app-header>
       <app-login-form @onLogIn=${() => this._updateTemplate(true)}></app-login-form>
+      <app-footer></app-footer>
     `;
   }
 }

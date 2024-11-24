@@ -8,5 +8,6 @@ export const THEME_COLORS = {
     grayColor: css`#d6d6d6`,
     lightBlue: css`#B7E0FF`,
     darkGray: css`#616161`,
-    lightGreen: css`#38b559`
+    lightGreen: css`#38b559`,
+    mediumGray: css`#2f3030`
 }
