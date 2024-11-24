@@ -2,6 +2,7 @@ import '@lion/ui/define/lion-form.js';
 import '@lion/ui/define/lion-checkbox.js';
 import '@lion/ui/define/lion-button-submit.js';
 import './input-element.js';
+import './loader.js';
 import { CSSResult, html, LitElement, TemplateResult } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { FormStyles } from '../styles/form-styles.js';
@@ -63,17 +64,23 @@ export class LoginForm extends LitElement {
 
     protected render(): TemplateResult<1> {
         return html`
-            <div class="form-container">
-                <lion-form @submit="${this._submitForm}">
-                    <form @submit="${(event: any) => event.preventDefault()}">
-                        <h1>Log In</h1>
-                        ${
-                            this._loginFormData.inputs.map((input: InputTemplate) => html`${this._renderInput(input)}`)
-                        }                        
-                        <lion-button-submit class="login-button">LOGIN</lion-button-submit>
-                    </form>
-                </lion-form>
+        ${this._isLoading ? html`
+            <div class='loader-container'>
+                <app-loader></app-loader>
             </div>
+            ` : html`
+            <div class="form-container">
+                    <lion-form @submit="${this._submitForm}">
+                        <form @submit="${(event: any) => event.preventDefault()}">
+                            <h1>Log In</h1>
+                            ${
+                                this._loginFormData.inputs.map((input: InputTemplate) => html`${this._renderInput(input)}`)
+                            }                        
+                            <lion-button-submit class="login-button">LOGIN</lion-button-submit>
+                        </form>
+                    </lion-form>
+            </div>
+        `}
         `;
     }
 }
