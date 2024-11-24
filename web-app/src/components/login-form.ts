@@ -36,6 +36,7 @@ export class LoginForm extends LitElement {
         this._isLoading = true;
         try {
            await this._authService.authUser(this._formValue);
+           this.dispatchEvent(new CustomEvent('onLogIn'));
         } catch(error) {
         } finally {
             this._isLoading = false;
