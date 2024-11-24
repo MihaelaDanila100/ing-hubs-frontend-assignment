@@ -24,4 +24,12 @@ export class AuthService {
         const token = 'dGVzdHVzZXJAZ21haWwuY29t';
         return token;
     }
+
+    public isLoggedIn(): boolean {
+        return this._localStorageService.getAcessToken() != null;
+    }
+
+    public logOut(): void {
+        this._localStorageService.removeAcessToken();
+    }
 }
