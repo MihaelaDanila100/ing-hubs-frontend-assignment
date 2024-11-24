@@ -7,6 +7,7 @@ import { FormStyles } from '../styles/form-styles.js';
 import { FormTemplate } from '../interfaces/form-template.js';
 import { LOGIN_FORM_TEMPLATE } from '../constants/login-form-template.js';
 import { InputTemplate } from '../interfaces/input-template.js';
+import { THEME_COLORS } from '../styles/theme.js';
 
 @customElement('app-login-form')
 export class LoginForm extends LitElement {
@@ -38,7 +39,14 @@ export class LoginForm extends LitElement {
                         ${
                             this.loginFormData.inputs.map((input: InputTemplate) => html`${this._renderInput(input)}`)
                         }
-                        <lion-checkbox label="Keep me logged in" .choiceValue=${true}></lion-checkbox>
+
+                        <lion-checkbox label="Keep me logged in" 
+                            class="checkbox"
+                            .choiceValue=${true}></lion-checkbox>
+                        
+                        <app-button .buttonColor=${THEME_COLORS.lightGreen}
+                            .textColor=${THEME_COLORS.primaryLightWhite}
+                            class="login-button">LOGIN</app-button>
                     </form>
                 </lion-form>
             </div>

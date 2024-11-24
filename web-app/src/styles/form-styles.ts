@@ -24,4 +24,15 @@ export const FormStyles: CSSResult = css`
         font-size: 1.2rem;
         font-weight: 600;
     }
+
+    .checkbox {
+        margin: 1rem 0.5rem;
+    }
+
+    .login-button {
+        width: 30rem;
+        font-size: 1.3rem;
+        padding: 1rem;
+        border-radius: 0px;
+    }
 `;

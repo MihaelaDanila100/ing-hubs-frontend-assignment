@@ -25,9 +25,12 @@ export class AppButton extends LionButton {
     static override get styles() {
         const buttonStyle: CSSResult = css`
             :host {
-                border-radius: 10px !important;
+                border-radius: 10px;
                 font-weight: 600;
                 cursor: pointer;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
             }
         `;
         return [

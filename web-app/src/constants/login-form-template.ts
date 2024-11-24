@@ -7,6 +7,10 @@ export const LOGIN_FORM_TEMPLATE: FormTemplate = {
             labelName: 'Email',
             controlName: 'email',
             inputType: InputTypes.EMAIL
+        }, {
+            labelName: 'Password',
+            controlName: 'password',
+            inputType: InputTypes.PASSWORD
         }
     ]
 }

@@ -7,5 +7,6 @@ export const THEME_COLORS = {
     buttonColor: css`#00CED1`,
     grayColor: css`#d6d6d6`,
     lightBlue: css`#B7E0FF`,
-    darkGray: css`#616161`
+    darkGray: css`#616161`,
+    lightGreen: css`#38b559`
 }
