@@ -34,5 +34,10 @@ export const FormStyles: CSSResult = css`
         font-size: 1.3rem;
         padding: 1rem;
         border-radius: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: ${THEME_COLORS.lightGreen};
+        color: ${THEME_COLORS.primaryLightWhite};
     }
 `;

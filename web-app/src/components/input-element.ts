@@ -30,6 +30,12 @@ export class AppInputElement extends LionInput {
         }
     }
 
+    private _inputChange(inputValue: string) {
+        const detail: any = {};
+        detail[this.inputName] = inputValue;
+        this.dispatchEvent(new CustomEvent('onChangeValue', {detail: detail}));
+    }
+
     private _renderSlot() {
         if(this.inputType === InputTypes.EMAIL) {
             loadDefaultFeedbackMessages();
@@ -38,6 +44,7 @@ export class AppInputElement extends LionInput {
                 <lion-input-email label=${this.labelName}
                     name=${this.inputName}
                     .validators="${[...this.validatorsList]}"
+                    @model-value-changed="${({target}: any) => this._inputChange(target.value)}"
                     class="input"></lion-input-email>
             `;
         }
@@ -47,6 +54,7 @@ export class AppInputElement extends LionInput {
                 name="${this.inputName}"
                 type="${this.inputType}"
                 .validators="${[...this.validatorsList]}"
+                @model-value-changed="${({target}: any) => this._inputChange(target.value)}"
                 class="input"></lion-input>
         `;
     }
