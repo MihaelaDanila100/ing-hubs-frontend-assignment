@@ -12,7 +12,14 @@ export class AppFooter extends LitElement {
     protected render(): TemplateResult<1> {
         return html`
             <footer class='footer'>
-                aaa
+                <div class='footer-data'>
+                    <h3>About us</h3>
+                    <hr>
+                    <div>This is a description of the website. Here goes any relevant information about the website</div>
+                </div>
+
+                <div class='footer-data'>
+                </div>
             </footer>
         `;
     }

@@ -10,5 +10,11 @@ export const FooterStyles: CSSResult = css`
         position: absolute;
         bottom: 0;
         width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    .footer-data {
+        margin: 1rem;
     }
 `;
