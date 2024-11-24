@@ -27,7 +27,6 @@ export class AppButton extends LionButton {
             :host {
                 border-radius: 10px;
                 font-weight: 600;
-                cursor: pointer;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
